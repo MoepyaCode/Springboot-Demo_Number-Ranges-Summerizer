@@ -13,6 +13,13 @@ import com.impact.number_ranges_summerizer.models.NumberRange;
 @Service
 public class NumberRangeSummarizerService implements NumberRangeSummarizer {
 
+    /**
+     * Converts a comma-separated string into a collection of integers.
+     *
+     * @param input the comma-separated string to convert
+     * @return a collection of parsed integers
+     * @throws RuntimeException if input is invalid
+     */
     @Override
     public Collection<Integer> collect(String input) {
         if (input == null || input.trim().isEmpty()) {
@@ -33,6 +40,12 @@ public class NumberRangeSummarizerService implements NumberRangeSummarizer {
         return numbers;
     }
 
+    /**
+     * Summarizes a collection of integers into ranges.
+     *
+     * @param input the collection of integers
+     * @return a string with summarized ranges (e.g., "1-3, 5-6")
+     */
     @Override
     public String summarizeCollection(Collection<Integer> input) {
         if (input == null || input.isEmpty()) {
