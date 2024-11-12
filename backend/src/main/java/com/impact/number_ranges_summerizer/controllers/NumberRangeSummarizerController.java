@@ -2,6 +2,7 @@
 package com.impact.number_ranges_summerizer.controllers;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +24,9 @@ public class NumberRangeSummarizerController {
     }
 
     @PostMapping("/summarize")
-    public String summarizeRanges(@RequestBody String input) {
-
+    public String summarizeRanges(@RequestBody Map<String, String> body) {
+        String input = body.get("input");
+        
         try {
             Collection<Integer> numbers = numberRangeSummarizer.collect(input);
             return numberRangeSummarizer.summarizeCollection(numbers);
